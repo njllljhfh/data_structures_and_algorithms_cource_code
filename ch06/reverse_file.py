@@ -1,0 +1,41 @@
+# Copyright 2013, Michael H. Goldwasser
+#
+# Developed for use with the book:
+#
+#    Data Structures and Algorithms in Python
+#    Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser
+#    John Wiley & Sons, 2013
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from ch06.array_stack import ArrayStack
+
+
+def reverse_file(filename):
+    """Overwrite given file with its contents line-by-line reversed."""
+    S = ArrayStack()
+    original = open(filename)
+    for line in original:
+        S.push(line.rstrip('\n'))  # we will re-insert newlines when writing
+    original.close()
+
+    # now we overwrite with contents in LIFO order
+    output = open(filename, 'w')  # reopening file overwrites original
+    while not S.is_empty():
+        output.write(S.pop() + '\n')  # re-insert newline characters
+    output.close()
+
+
+if __name__ == '__main__':
+    original_file_path = "./reverse_file_original.txt"
+    reverse_file(original_file_path)
