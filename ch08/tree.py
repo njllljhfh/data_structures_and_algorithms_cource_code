@@ -19,9 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# from ..ch07.linked_queue import LinkedQueue
 from ch07.linked_queue import LinkedQueue
-import collections
 
 
 class Tree:
@@ -31,7 +29,7 @@ class Tree:
     class Position:
         """An abstraction representing the location of a single element within a tree.
 
-        Note that two position instaces may represent the same inherent location in a tree.
+        Note that two position instances may represent the same inherent location in a tree.
         Therefore, users should always rely on syntax 'p == q' rather than 'p is q' when testing
         equivalence of positions.
         """
