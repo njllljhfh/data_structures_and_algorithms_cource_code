@@ -37,8 +37,8 @@ class _DoublyLinkedBase:
 
     def __init__(self):
         """Create an empty list."""
-        self._header = self._Node(None, None, None)
-        self._trailer = self._Node(None, None, None)
+        self._header = self._Node(None, None, None)  # 头哨兵节点
+        self._trailer = self._Node(None, None, None)  # 尾哨兵节点
         self._header._next = self._trailer  # trailer is after header
         self._trailer._prev = self._header  # header is before trailer
         self._size = 0  # number of elements

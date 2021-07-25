@@ -66,6 +66,7 @@ class BinaryTree(Tree):
             for p in self._subtree_inorder(self.root()):
                 yield p
 
+    # dragon:这是深度优先吗？
     def _subtree_inorder(self, p):
         """Generate an inorder iteration of positions in subtree rooted at p."""
         if self.left(p) is not None:  # if left child exists, traverse its subtree

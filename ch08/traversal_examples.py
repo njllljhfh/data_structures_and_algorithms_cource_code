@@ -18,6 +18,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from ch08.linked_binary_tree import LinkedBinaryTree
+
 
 def toc_plain(T):
     for p in T.preorder():
@@ -47,6 +49,8 @@ def preorder_label(T, p, d, path):
     path.pop()
 
 
+# - - -
+
 def parenthesize(T, p):
     """Print parenthesized representation of subtree of T rooted at p."""
     print(p.element(), end='')  # use of end avoids trailing newline
@@ -66,3 +70,33 @@ def disk_space(T, p):
     for c in T.children(p):
         subtotal += disk_space(T, c)  # add child's space to subtotal
     return subtotal
+
+
+def _njl_test_preorder_label():
+    """
+    期待输出：
+    Electronics R'Us
+      1 R&D
+      2 Sales
+        2.1 Domestic
+        2.2 International
+          2.2.1 Canada
+          2.2.2 S. America
+    """
+    bt = LinkedBinaryTree()
+    bt._add_root("Electronics R'Us")
+
+    bt._add_left(bt.root(), "R&D")
+    sales = bt._add_right(bt.root(), "Sales")
+
+    bt._add_left(sales, "Domestic")
+    international = bt._add_right(sales, "International")
+
+    bt._add_left(international, "Canada")
+    bt._add_right(international, "S. America")
+
+    preorder_label(bt, bt.root(), 0, [])
+
+
+if __name__ == '__main__':
+    _njl_test_preorder_label()
