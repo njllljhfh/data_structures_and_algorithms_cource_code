@@ -49,29 +49,6 @@ def preorder_label(T, p, d, path):
     path.pop()
 
 
-# - - -
-
-def parenthesize(T, p):
-    """Print parenthesized representation of subtree of T rooted at p."""
-    print(p.element(), end='')  # use of end avoids trailing newline
-    if not T.is_leaf(p):
-        first_time = True
-        for c in T.children(p):
-            sep = ' (' if first_time else ', '  # determine proper separator
-            print(sep, end='')
-            first_time = False  # any future passes will not be the first
-            parenthesize(T, c)  # recur on child
-        print(')', end='')  # include closing parenthesis
-
-
-def disk_space(T, p):
-    """Return total disk space for subtree of T rooted at p."""
-    subtotal = p.element().space()  # space used at position p
-    for c in T.children(p):
-        subtotal += disk_space(T, c)  # add child's space to subtotal
-    return subtotal
-
-
 def _njl_test_preorder_label():
     """
     期待输出：
@@ -98,5 +75,53 @@ def _njl_test_preorder_label():
     preorder_label(bt, bt.root(), 0, [])
 
 
+# - - -
+
+def parenthesize(T, p):
+    """Print parenthesized representation of subtree of T rooted at p."""
+    print(p.element(), end='')  # use of end avoids trailing newline
+    if not T.is_leaf(p):
+        first_time = True
+        for c in T.children(p):
+            sep = ' (' if first_time else ', '  # determine proper separator
+            print(sep, end='')
+            first_time = False  # any future passes will not be the first
+            parenthesize(T, c)  # recur on child
+        print(')', end='')  # include closing parenthesis
+
+
+def _njl_test_parenthesize():
+    """
+    输出：
+    Electronics R'Us (R&D, Sales (Domestic, International (Canada, S. America)))
+    """
+    bt = LinkedBinaryTree()
+    bt._add_root("Electronics R'Us")
+
+    bt._add_left(bt.root(), "R&D")
+    sales = bt._add_right(bt.root(), "Sales")
+
+    bt._add_left(sales, "Domestic")
+    international = bt._add_right(sales, "International")
+
+    bt._add_left(international, "Canada")
+    bt._add_right(international, "S. America")
+
+    parenthesize(bt, bt.root())
+
+
+# - - -
+
+def disk_space(T, p):
+    """Return total disk space for subtree of T rooted at p."""
+    # 假设每个树元素的 space() 方法给出在这个位置的本地空间使用情况。
+    subtotal = p.element().space()  # space used at position p
+    for c in T.children(p):
+        subtotal += disk_space(T, c)  # add child's space to subtotal
+    return subtotal
+
+
 if __name__ == '__main__':
-    _njl_test_preorder_label()
+    # _njl_test_preorder_label()
+
+    _njl_test_parenthesize()
