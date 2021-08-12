@@ -39,5 +39,5 @@ for (w, c) in freq.items():  # (key, value) tuples represent (word, count)
     if c > max_count:
         max_word = w
         max_count = c
-print('The most frequent word is', max_word)
-print('Its number of occurrences is', max_count)
+print(f'The most frequent word is "{max_word}"')
+print(f'Its number of occurrences is "{max_count}"')
