@@ -20,7 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # from ..exceptions import Empty
-from queue import Empty
+from exceptions import Empty
 
 
 class LinkedQueue:

@@ -39,7 +39,7 @@ class LinkedBinaryTree(BinaryTree):
 
     # -------------------------- nested Position class --------------------------
     # 注意:
-    #   Position实例 是在需要的时候，传入响应的_Node来动态生成的，Position的实例没有被存储到树结构中。
+    #   Position实例 是在需要的时候，传入相应的_Node来动态生成的，Position的实例没有被存储到树结构中。
     #   因为没有被存储，所以 Position 不需要定义 __slots__ 来节省内存的开销。
     class Position(BinaryTree.Position):
         """An abstraction representing the location of a single element."""
@@ -208,73 +208,74 @@ class LinkedBinaryTree(BinaryTree):
             t2._size = 0
 
 
-# if __name__ == '__main__':
-#     linked_bt = LinkedBinaryTree()
-#     p_root = linked_bt._add_root("root")
-#
-#     print(f"p_root.element() = {p_root.element()}")
-#     print(linked_bt.root().element())
-#     print(f"linked_bt.children(p_root) = {linked_bt.children(p_root)}")
-#
-#     print(f"linked_bt.is_leaf(p_root) = {linked_bt.is_leaf(p_root)}")
-#
-#     print(f"linked_bt.is_root(p_root) = {linked_bt.is_root(p_root)}")
-#
-#     print(f"linked_bt.is_empty() = {linked_bt.is_empty()}")
-#
-#     print(f"len(linked_bt) = {len(linked_bt)}")
-#
-#     p_right_1 = linked_bt._add_right(linked_bt.root(), "right_1")
-#     p_left_1 = linked_bt._add_left(linked_bt.root(), "left_1")
-#     print(f"p_right_1.element() = {p_right_1.element()}")
-#
-#     print(f"linked_bt.right(p_root) = {linked_bt.right(p_root).element()}")
-#     print(f"linked_bt.left(p_root) = {linked_bt.left(p_root)}")
-#
-#     print(f"linked_bt.parent(p_right_1).element() = {linked_bt.parent(p_right_1).element()}")
-#
-#     print(f"linked_bt.num_children(p_root) = {linked_bt.num_children(p_root)}")
-#
-#     print(f"linked_bt.sibling(p_right_1).element() = {linked_bt.sibling(p_right_1).element()}")
-#
-#     print(linked_bt.height(p_root))
-#     print(linked_bt.depth(p_root))
-#     print(linked_bt.depth(p_left_1))
-#
-#     print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-#     print(f"p_left_1._container = {p_left_1._container}")
-#     t_left_2 = LinkedBinaryTree()
-#     p_root_t_left_2 = t_left_2._add_root("root_t_left_2")
-#     print(f"p_root_t_left_2._container = {p_root_t_left_2._container}")
-#     t_right_2 = LinkedBinaryTree()
-#     t_right_2._add_root("root_t_right_2")
-#
-#     linked_bt._attach(p_left_1, t_left_2, t_right_2)
-#     print(f"p_root_t_left_2._container = {p_root_t_left_2._container}")
-#     # linked_bt.left(p_root_t_left_2) # ValueError: p does not belong to this container
-#
-#     p_2_left = linked_bt.left(p_left_1)
-#     print(f"{p_2_left.element()}")
-#     print(f"p_2_left._container = {p_2_left._container}")
-#
-#     print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-#     for position in linked_bt.positions():
-#         print(position._container)
-#
-#     print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
-#     t1 = LinkedBinaryTree()
-#     t1._add_root(1)
-#     t2 = LinkedBinaryTree()
-#     t2._add_root(2)
-#
-#     r1 = t1.root()
-#     r2 = t2.root()
-#     print(f"r1 == r2 : {r1 == r2}")
-#     print(f"r1 is r2 : {r1 is r2}")
-#     print(f"type(r1) is type(r2) : {type(r1) is type(r2)}")
-#     print(f"r1._node == r2._node : {r1._node == r2._node}")
-#     print(f"r1._node is r2._node : {r1._node is r2._node}")
-#
-#     x = iter(linked_bt)
-#     for e in x:
-#         print("e={}".format(e))
+if __name__ == '__main__':
+    pass
+    # linked_bt = LinkedBinaryTree()
+    # p_root = linked_bt._add_root("root")
+    #
+    # print(f"p_root.element() = {p_root.element()}")
+    # print(linked_bt.root().element())
+    # print(f"linked_bt.children(p_root) = {linked_bt.children(p_root)}")
+    #
+    # print(f"linked_bt.is_leaf(p_root) = {linked_bt.is_leaf(p_root)}")
+    #
+    # print(f"linked_bt.is_root(p_root) = {linked_bt.is_root(p_root)}")
+    #
+    # print(f"linked_bt.is_empty() = {linked_bt.is_empty()}")
+    #
+    # print(f"len(linked_bt) = {len(linked_bt)}")
+    #
+    # p_right_1 = linked_bt._add_right(linked_bt.root(), "right_1")
+    # p_left_1 = linked_bt._add_left(linked_bt.root(), "left_1")
+    # print(f"p_right_1.element() = {p_right_1.element()}")
+    #
+    # print(f"linked_bt.right(p_root) = {linked_bt.right(p_root).element()}")
+    # print(f"linked_bt.left(p_root) = {linked_bt.left(p_root)}")
+    #
+    # print(f"linked_bt.parent(p_right_1).element() = {linked_bt.parent(p_right_1).element()}")
+    #
+    # print(f"linked_bt.num_children(p_root) = {linked_bt.num_children(p_root)}")
+    #
+    # print(f"linked_bt.sibling(p_right_1).element() = {linked_bt.sibling(p_right_1).element()}")
+    #
+    # print(linked_bt.height(p_root))
+    # print(linked_bt.depth(p_root))
+    # print(linked_bt.depth(p_left_1))
+    #
+    # print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+    # print(f"p_left_1._container = {p_left_1._container}")
+    # t_left_2 = LinkedBinaryTree()
+    # p_root_t_left_2 = t_left_2._add_root("root_t_left_2")
+    # print(f"p_root_t_left_2._container = {p_root_t_left_2._container}")
+    # t_right_2 = LinkedBinaryTree()
+    # t_right_2._add_root("root_t_right_2")
+    #
+    # linked_bt._attach(p_left_1, t_left_2, t_right_2)
+    # print(f"p_root_t_left_2._container = {p_root_t_left_2._container}")
+    # # linked_bt.left(p_root_t_left_2) # ValueError: p does not belong to this container
+    #
+    # p_2_left = linked_bt.left(p_left_1)
+    # print(f"{p_2_left.element()}")
+    # print(f"p_2_left._container = {p_2_left._container}")
+    #
+    # print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+    # for position in linked_bt.positions():
+    #     print(position._container)
+    #
+    # print("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+    # t1 = LinkedBinaryTree()
+    # t1._add_root(1)
+    # t2 = LinkedBinaryTree()
+    # t2._add_root(2)
+    #
+    # r1 = t1.root()
+    # r2 = t2.root()
+    # print(f"r1 == r2 : {r1 == r2}")
+    # print(f"r1 is r2 : {r1 is r2}")
+    # print(f"type(r1) is type(r2) : {type(r1) is type(r2)}")
+    # print(f"r1._node == r2._node : {r1._node == r2._node}")
+    # print(f"r1._node is r2._node : {r1._node is r2._node}")
+    #
+    # x = iter(linked_bt)
+    # for e in x:
+    #     print("e={}".format(e))
