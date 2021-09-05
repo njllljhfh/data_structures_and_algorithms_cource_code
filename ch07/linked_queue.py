@@ -82,3 +82,15 @@ class LinkedQueue:
             self._tail._next = newest
         self._tail = newest  # update reference to tail node
         self._size += 1
+
+    def __repr__(self):
+        """打印"""
+        node = self._head
+        res = ''
+        for i in range(self._size):
+            if i < self._size - 1:
+                res += f'{node._element}, '
+            else:
+                res += f'{node._element}'
+            node = node._next
+        return res

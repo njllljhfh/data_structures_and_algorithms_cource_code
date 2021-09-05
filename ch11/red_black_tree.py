@@ -94,7 +94,7 @@ class RedBlackTreeMap(TreeMap):
             if n == 1:  # deficit exists unless child is a red leaf
                 c = next(self.children(p))  # c是y，p是z
                 if not self._is_red_leaf(c):  # 如果c是红色的叶子节点，那么被删除的节点也是红色叶子节点
-                    # 被删除的节点是节点p的黑色叶子节点
+                    # 被删除的节点是节点p的黑色叶子节点（可以根据红黑树的特性，推断出来）
                     self._fix_deficit(p, c)
             elif n == 2:  # removed black node with red child
                 # 书中P-338页，最上边描述的情况。另见P-340 图11-41 b) 右侧的描述。

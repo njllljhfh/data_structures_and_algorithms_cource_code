@@ -28,6 +28,11 @@ class HeapPriorityQueue(PriorityQueueBase):  # base class defines _Item
 
     # ------------------------------ nonpublic behaviors ------------------------------
     def _parent(self, j):
+        """
+        获取指定索引j的父节点的索引
+        :param j: 索引
+        :return: 索引j对应的节点的父节点的索引
+        """
         return (j - 1) // 2
 
     def _left(self, j):
