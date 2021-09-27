@@ -131,3 +131,39 @@ class RedBlackTreeMap(TreeMap):
                 self._fix_deficit(z, self.left(z))
             else:
                 self._fix_deficit(z, self.right(z))
+
+    def __repr__(self):
+        """print返回的数据"""
+        res = ''
+        for i, key in enumerate(self):
+            k_v = (key, self[key])
+            res += f'{k_v}'
+            if i < len(self) - 1:
+                res += ', '
+        return res
+
+
+if __name__ == '__main__':
+    red_black_tree = RedBlackTreeMap()
+    seq = [9, 1, 2, 8, 7, 4, 3, 5, 6]
+
+    for element in seq:
+        red_black_tree[str(element)] = element
+    print(f'red_black_tree={red_black_tree}')
+    print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ')
+
+    print(f'最小key={red_black_tree.first().key()}')
+    print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ')
+
+    print(f'最大key={red_black_tree.last().key()}')
+    print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ')
+
+    print(f'删除最小key后：')
+    red_black_tree.delete(red_black_tree.first())
+    print(f'red_black_tree={red_black_tree}')
+    print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ')
+
+    print(f'删除最大key后：')
+    red_black_tree.delete(red_black_tree.last())
+    print(f'red_black_tree={red_black_tree}')
+    print('- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ')
