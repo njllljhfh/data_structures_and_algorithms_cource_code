@@ -26,6 +26,7 @@ def merge(src, result, start, inc):
     """Merge src[start:start+inc] and src[start+inc:start+2*inc] into result."""
     end1 = start + inc  # boundary for run 1
     end2 = min(start + 2 * inc, len(src))  # boundary for run 2
+    # x, y, z 分别是 run 1, run 2, result 的起始索引
     x, y, z = start, start + inc, start  # index into run 1, run 2, result
     while x < end1 and y < end2:
         if src[x] < src[y]:
