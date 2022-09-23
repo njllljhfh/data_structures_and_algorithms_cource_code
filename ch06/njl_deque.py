@@ -23,3 +23,10 @@ if __name__ == '__main__':
     print(dq)
 
     print(f'当前队列中数据个数：{len(dq)}')
+
+    dq.append(11)
+    dq.append(22)
+    dq.append(33)
+    print(dq)
+    print(dq.rotate())
+    print(dq)

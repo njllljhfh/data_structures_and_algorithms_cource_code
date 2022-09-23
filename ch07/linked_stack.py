@@ -89,3 +89,5 @@ if __name__ == '__main__':
 
     y = s.pop()
     print(f"y={y}")
+
+    print(id(x) == id(e1) == id(y))
