@@ -58,7 +58,7 @@ class LinkedBinaryTree(BinaryTree):
             return type(other) is type(self) and other._node is self._node
 
     # ------------------------------- utility methods -------------------------------
-    def _validate(self, p):
+    def _validate(self, p) -> _Node:
         """Return associated node, if position is valid."""
         if not isinstance(p, self.Position):
             raise TypeError('p must be proper Position type')
@@ -68,7 +68,7 @@ class LinkedBinaryTree(BinaryTree):
             raise ValueError('p is no longer valid')
         return p._node
 
-    def _make_position(self, node):
+    def _make_position(self, node) -> Position:
         """Return Position instance for given node (or None if no node)."""
         return self.Position(self, node) if node is not None else None
 
